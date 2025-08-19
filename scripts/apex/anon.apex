@@ -12,7 +12,9 @@ request.setMethod('GET');
 HttpResponse response = new Http().send(request);
 System.debug('mydebug :: response status code: ' + response.getStatusCode());
 System.debug('mydebug :: serialized response: ' + response.getBody());
-Map<String, Object> responseBody = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+Map<String, Object> responseBody = (Map<String, Object>) JSON.deserializeUntyped(
+  response.getBody()
+);
 List<Object> animals = (List<Object>) responseBody.get('animals');
 for (Object animal : animals) {
   String animalName = (String) animal;
@@ -27,3 +29,9 @@ request.setBody('{"name": "mighty moose"}');
 response = new Http().send(request);
 System.debug('mydebug :: response status code: ' + response.getStatusCode());
 System.debug('mydebug :: response: ' + response.getBody());
+
+calculatorServices.CalculatorImplPort calculator = new calculatorServices.CalculatorImplPort();
+Double x = 1.0;
+Double y = 2.0;
+Double result = calculator.doAdd(x, y);
+System.debug(result);
