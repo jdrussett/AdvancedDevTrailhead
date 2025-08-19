@@ -49,7 +49,6 @@ $RECYCLE.BIN/
 
 .husky/
 .prettierignore
-.prettierrc
 jest.config.js
 package-lock.json
 package.json
