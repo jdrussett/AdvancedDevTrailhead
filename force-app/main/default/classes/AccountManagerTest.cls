@@ -20,7 +20,10 @@ private with sharing class AccountManagerTest {
         request.httpMethod = REST_GET;
         RestContext.request = request;
 
-        Account result = AccountManager.getAccount();
+        Account result;
+        System.runAs(new User(Id = UserInfo.getUserId())) {
+            result = AccountManager.getAccount();
+        }
 
         Assert.isNotNull(result, 'account should have been retrieved');
         Assert.areEqual(2, result.Contacts.size(), 'two contacts should have been retrieved');

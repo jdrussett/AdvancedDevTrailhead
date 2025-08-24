@@ -1,5 +1,5 @@
 public with sharing class AnimalLocator {
-private static final String GET = 'GET';
+    private static final String GET = 'GET';
 
     // run: AnimalLocator.getAnimalNameById(1);
     public static String getAnimalNameById(Integer animalId) {

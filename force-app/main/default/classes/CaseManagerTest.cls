@@ -23,7 +23,10 @@ private with sharing class CaseManagerTest {
         request.httpMethod = REST_GET;
         RestContext.request = request;
 
-        Case thisCase = CaseManager.getByCaseId();
+        Case thisCase;
+        System.runAs(new User(Id = UserInfo.getUserId())) {
+            thisCase = CaseManager.getByCaseId();
+        }
 
         Assert.isNotNull(thisCase, 'test case should not be null');
         Assert.areEqual('Test Case', thisCase.Subject, 'test case subject does not match');
@@ -36,13 +39,16 @@ private with sharing class CaseManagerTest {
     private static void testCreateCase() {
         Id recordId = CaseManager.createCase('Ferocious chipmunk', 'New', 'Phone', 'Low');
 
-        Case thisCase = [SELECT Id, Subject FROM Case WHERE Id = :recordId];
+        Case thisCase;
+        System.runAs(new User(Id = UserInfo.getUserId())) {
+            thisCase = [SELECT Id, Subject FROM Case WHERE Id = :recordId];
+        }
 
         Assert.isNotNull(recordId, 'record was not properly created by CaseManager.createCase()');
         Assert.isNotNull(thisCase, 'case record should have been retrieved');
         Assert.areEqual('Ferocious chipmunk', thisCase.Subject, 'unexpected subject for test case');
     }
-    
+
     /**
      * tests @HttpDelete
      */
@@ -59,7 +65,10 @@ private with sharing class CaseManagerTest {
         request.httpMethod = REST_DELETE;
         RestContext.request = request;
 
-        Boolean result = CaseManager.deleteCase();
+        Boolean result;
+        System.runAs(new User(Id = UserInfo.getUserId())) {
+            result = CaseManager.deleteCase();
+        }
         Assert.isTrue(result, 'delete did not succeed');
 
         List<Case> cases = [SELECT Id FROM Case WHERE Id = :recordId];
@@ -71,14 +80,21 @@ private with sharing class CaseManagerTest {
      */
     @isTest
     private static void testUpsertCase() {
-        Id caseOneId = CaseManager.upsertCase('Ferocious chipmunk', 'New', 'Phone', 'Low', null);
+        User runAsUser = new User(Id = UserInfo.getUserId());
+        Id caseOneId;
+        System.runAs(runAsUser) {
+            caseOneId = CaseManager.upsertCase('Ferocious chipmunk', 'New', 'Phone', 'Low', null);
+        }
         Assert.isNotNull(caseOneId, 'case id should be populated after inserting');
 
         Case caseOne = [SELECT Id, Subject FROM Case WHERE Id = :caseOneId];
         Assert.isNotNull(caseOne, 'caseOne should have been queried by id');
         Assert.areEqual('Ferocious chipmunk', caseOne.Subject, 'unexpected case subject');
 
-        Id caseTwoId = CaseManager.upsertCase('Ferocious chipmunk', 'Working', 'Phone', 'Low', caseOneId);
+        Id caseTwoId;
+        System.runAs(runAsUser) {
+            caseTwoId = CaseManager.upsertCase('Ferocious chipmunk', 'Working', 'Phone', 'Low', caseOneId);
+        }
         Assert.areEqual(caseOneId, caseTwoId, 'case should have been updated by upsert, not inserted');
 
         Case caseTwo = [SELECT Id, Status FROM Case WHERE Id = :caseTwoId];
@@ -104,7 +120,10 @@ private with sharing class CaseManagerTest {
         request.requestBody = Blob.valueOf('{"status" : "Working"}');
         RestContext.request = request;
 
-        Id caseId = CaseManager.updateCaseFields();
+        Id caseId;
+        System.runAs(new User(Id = UserInfo.getUserId())) {
+            caseId = CaseManager.updateCaseFields();
+        }
         Case thisCase = [SELECT Id, Status FROM Case WHERE Id = :caseId];
 
         Assert.isNotNull(caseId, 'case Id should not be null');

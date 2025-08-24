@@ -16,7 +16,11 @@ private with sharing class AnimalsCalloutsTest {
         Test.setMock(HttpCalloutMock.class, /* mocked callout response via static resource */ mock);
 
         // test by simulating the callout
-        HttpResponse response = AnimalsCallouts.makeGETCallout();
+        HttpResponse response;
+        System.runAs(new User(Id = UserInfo.getUserId())) {
+            response = AnimalsCallouts.makeGETCallout();
+        }
+
         Assert.areNotEqual(null, response, 'callout response should not be null');
         Assert.areEqual(200, response.getStatusCode(), 'callout response status code should be 200');
         Assert.areEqual(
@@ -42,7 +46,11 @@ private with sharing class AnimalsCalloutsTest {
 
         // test by simulating the callout - posting new animal mighty moose to web content
         // response in this case will come from AnimalsHttpCalloutMock mock respond() method
-        HttpResponse response = AnimalsCallouts.makePOSTCallout();
+        HttpResponse response;
+        System.runAs(new User(Id = UserInfo.getUserId())) {
+            response = AnimalsCallouts.makePOSTCallout();
+        }
+        
         Assert.areEqual(
             'application/json;charset=UTF-8',
             response.getHeader('Content-Type'),

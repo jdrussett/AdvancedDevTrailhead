@@ -6,7 +6,10 @@ public with sharing class AnimalLocatorTest {
         Test.setMock(HttpCalloutMock.class, mock);
         Integer animalId = 1;
 
-        String response = AnimalLocator.getAnimalNameById(animalId);
+        String response;
+        System.runAs(new User(Id = UserInfo.getUserId())) {
+            response = AnimalLocator.getAnimalNameById(animalId);
+        }
         Assert.isNotNull(response, 'response body should not be null');
     }
 }
