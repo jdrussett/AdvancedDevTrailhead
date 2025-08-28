@@ -21,3 +21,7 @@ Contains solutions for many advanced developer topic related Trailhead badges &a
     - Apex web services
         - [AccountManager.cls](force-app/main/default/classes/AccountManager.cls)/[AccountManagerTest.cls](force-app/main/default/classes/AccountManagerTest.cls)
         - [CaseManager.cls](force-app/main/default/classes/CaseManager.cls)/[CaseManagerTest.cls](force-app/main/default/classes/CaseManagerTest.cls)
+- [Platform Events Basics](https://trailhead.salesforce.com/content/learn/modules/platform_events_basics)
+    - [publish w/ Apex example](scripts/apex/publishPlatformEventsExample.apex)
+    - [CloudNewsTrigger.trigger](force-app/main/default/triggers/CloudNewsTrigger.trigger)/[CloudNewsTriggerHandler.cls](force-app/main/default/classes/CloudNewsTriggerHandler.cls)/[CloudNewsTriggerHanlderTest.cls](force-app/main/default/classes/CloudNewsTriggerHandlerTest.cls)
+    - [OrderEventTrigger.trigger](force-app/main/default/triggers/OrderEventTrigger.trigger)/[OrderEventTriggerHandler.cls](force-app/main/default/classes/OrderEventTriggerHandler.cls)
