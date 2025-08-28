@@ -3,7 +3,7 @@ public with sharing class AnimalLocator {
 
     // run: AnimalLocator.getAnimalNameById(1);
     public static String getAnimalNameById(Integer animalId) {
-        String endpoint = 'callout:AnimalsCallout/' + String.valueOf(animalId);
+        String endpoint = 'callout:AnimalsCallout/' + String.valueOf(animalId); // from named credential
         HttpRequest request = new HttpRequest();
         request.setMethod(GET);
         request.setEndpoint(endpoint);
