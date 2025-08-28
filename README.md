@@ -1,5 +1,11 @@
 # AdvancedDevTrailhead
 
+## Deployment
+
+All metadata spanning all included badges/modules deployable with [deploy.xml](packages/deploy.xml).
+
+## Metadata
+
 Contains solutions for many advanced developer topic related Trailhead badges &amp; modules
 
 - [Apex Enterprise Patterns: Service Layer](https://trailhead.salesforce.com/content/learn/modules/apex_patterns_sl)
@@ -7,7 +13,7 @@ Contains solutions for many advanced developer topic related Trailhead badges &a
 - [Apex Integration Services](https://trailhead.salesforce.com/content/learn/modules/apex_integration_services)
     - REST callouts
         - [AnimalsCallouts.cls](force-app/main/default/classes/AnimalsCallouts.cls)/[AnimalsCalloutsTest.cls](force-app/main/default/classes/AnimalsCalloutsTest.cls)
-        - [AnimalsHttpCalloutMock](force-app/main/default/classes/AnimalsHttpCalloutMock.cls)
+        - [AnimalsHttpCalloutMock.cls](force-app/main/default/classes/AnimalsHttpCalloutMock.cls)
         - [AnimalLocator.cls](force-app/main/default/classes/AnimalLocator.cls)/[AnimalLocatorTest.cls](force-app/main/default/classes/AnimalLocatorTest.cls)
         - [AnimalLocatorMock.cls](force-app/main/default/classes/AnimalLocatorMock.cls)
         - [GetAnimalResource.txt](force-app/main/default/staticresources/GetAnimalResource.txt)
@@ -25,3 +31,7 @@ Contains solutions for many advanced developer topic related Trailhead badges &a
     - [publish w/ Apex example](scripts/apex/publishPlatformEventsExample.apex)
     - [CloudNewsTrigger.trigger](force-app/main/default/triggers/CloudNewsTrigger.trigger)/[CloudNewsTriggerHandler.cls](force-app/main/default/classes/CloudNewsTriggerHandler.cls)/[CloudNewsTriggerHanlderTest.cls](force-app/main/default/classes/CloudNewsTriggerHandlerTest.cls)
     - [OrderEventTrigger.trigger](force-app/main/default/triggers/OrderEventTrigger.trigger)/[OrderEventTriggerHandler.cls](force-app/main/default/classes/OrderEventTriggerHandler.cls)
+- [Build an Instant Notification App](https://trailhead.salesforce.com/content/learn/projects/workshop-platform-events) - *(Platform Events)*
+    - [BearAlertTopicAssignmentTrigger.trigger](force-app/main/default/triggers/BearAlertTopicAssignmentTrigger.trigger)
+    - [BearAlertTopicAssignmentTriggerHandler.cls](force-app/main/default/classes/BearAlertTopicAssignmentTriggerHandler.cls)
+    - [notificationConsole LWC](force-app/main/default/lwc/notificationConsole/)
