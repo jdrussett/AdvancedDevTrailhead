@@ -13,6 +13,8 @@ Contains solutions for many advanced developer topic related Trailhead badges &a
 - [Asynchronous Apex](https://trailhead.salesforce.com/content/learn/modules/asynchronous_apex)
     - Future methods
         - [AccountProcessor.cls](force-app/main/default/classes/AccountProcessor.cls) / [AccountProcessorTest.cls](force-app/main/default/classes/AccountProcessorTest.cls)
+    - Batch Apex
+        - [LeadProcessor.cls](force-app/main/default/classes/LeadProcessor.cls) / [LeadProcessorTest.cls](force-app/main/default/classes/LeadProcessorTest.cls)
 - [Apex Integration Services](https://trailhead.salesforce.com/content/learn/modules/apex_integration_services)
     - REST callouts
         - [AnimalsCallouts.cls](force-app/main/default/classes/AnimalsCallouts.cls) / [AnimalsCalloutsTest.cls](force-app/main/default/classes/AnimalsCalloutsTest.cls)
