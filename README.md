@@ -15,6 +15,10 @@ Contains solutions for many advanced developer topic related Trailhead badges &a
         - [AccountProcessor.cls](force-app/main/default/classes/AccountProcessor.cls) / [AccountProcessorTest.cls](force-app/main/default/classes/AccountProcessorTest.cls)
     - Batch Apex
         - [LeadProcessor.cls](force-app/main/default/classes/LeadProcessor.cls) / [LeadProcessorTest.cls](force-app/main/default/classes/LeadProcessorTest.cls)
+    - Queueable Apex
+        - [AddPrimaryContact.cls](force-app/main/default/classes/AddPrimaryContact.cls) / [AddPrimaryContactTest.cls](force-app/main/default/classes/AddPrimaryContactTest.cls)
+    - Schedulable Apex
+        - [DailyLeadProcessor.cls](force-app/main/default/classes/DailyLeadProcessor.cls) / [DailyLeadProcessorTest.cls](force-app/main/default/classes/DailyLeadProcessorTest.cls)
 - [Apex Integration Services](https://trailhead.salesforce.com/content/learn/modules/apex_integration_services)
     - REST callouts
         - [AnimalsCallouts.cls](force-app/main/default/classes/AnimalsCallouts.cls) / [AnimalsCalloutsTest.cls](force-app/main/default/classes/AnimalsCalloutsTest.cls)
